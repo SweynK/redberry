@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script defer src="addblog.js"></script>
+    <link rel="stylesheet" href="addblog.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="/img/LOGO-02 3.png" alt="redberry logo" />
+    </header>
+    <main>
+      <a href="../index/index.html" class="backward-icon">
+        <ion-icon name="chevron-back-outline" class="backpage-icon"></ion-icon>
+      </a>
+      <section class="blog">
+        <p class="blog-header">ბლოგის დამატება</p>
+        <form class="blog-form">
+          <div class="image-box">
+            <p class="img-header">ატვირტეთ ფოტო</p>
+            <input type="file" name="image" id="upload" hidden />
+            <label for="upload" class="upload-label">
+              <span><i class="fa fa-cloud-upload"></i></span>
+              <p class="choose-text">აირჩიეთ ფაილი</p>
+              <span><ion-icon name="image" class="img-icon"></ion-icon></span>
+              <p class="photo-name"></p>
+            </label>
+          </div>
+          <div class="flex-inputs">
+            <div class="flex-style">
+              <label for="author" class="label-header">ავტორი *</label>
+              <input
+                type="text"
+                name="author"
+                id="author"
+                placeholder="შეიყვანეთ ავტორი"
+                class="input-style"
+              />
+              <ul>
+                <li>მინიმუმ ოთხი სიმბოლო</li>
+                <li>მინიმუმ 2 სიტყვა</li>
+                <li>მხოლოდ ქართული სიმბოლოები</li>
+              </ul>
+            </div>
+            <div class="flex-style">
+              <label for="title" class="label-header">სათაური *</label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="შეიყვანეთ სათაური"
+                class="input-style"
+              />
+              <p class="error-msg" id="error-title">მინიმუმ 2 სიმბოლო</p>
+            </div>
+          </div>
+          <label for="" class="label-header">აღწერა *</label>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="10"
+            placeholder="შეიყვანეთ აღწერა"
+          ></textarea>
+          <p class="error-msg" id="error-description">მინიმუმ 2 სიმბოლო</p>
+          <div class="flex-inputs">
+            <div class="flex-style">
+              <label for="publish date" class="label-header"
+                >შეიყვანეთ თარიღი *</label
+              >
+              <input
+                type="date"
+                name="publish_date"
+                id="publish_date"
+                class="input-style"
+              />
+            </div>
+            <div class="flex-style">
+              <label for="categories" class="label-header">კატეგორია *</label>
+              <select
+                name="categories"
+                id="categories"
+                class="input-style"
+              ></select>
+            </div>
+          </div>
+          <label for="email" class="label-header">ელ-ფოსტა</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            class="input-style"
+            placeholder="Example@redberry.com"
+          />
+          <p class="mail-error"></p>
+          <button class="btn-blog">გამოქვეყნება</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
