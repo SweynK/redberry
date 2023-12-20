@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="./css/addblog.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="./img/LOGO-02 3.png" alt="redberry logo" />
+    </header>
+    <main>
+      <a href="index.html" class="backward-icon">
+        <ion-icon name="chevron-back-outline" class="backpage-icon"></ion-icon>
+      </a>
+      <section class="blog">
+        <p class="addblog-text">ბლოგის დამატება</p>
+        <form>
+          <label for="uploadImage">ატვირთეთ ფოტო</label>
+          <input type="file" name="uploadImage" id="image" />
+          <label for="author">ავტორი*</label>
+          <input
+            type="text"
+            name="author"
+            id="author"
+            placeholder="შეიყვანეთ ავტორი"
+          />
+          <label for="title">სათაური*</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="შეიყვანეთ სათაური"
+          />
+          <label for="">აღწერა*</label>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="10"
+            placeholder="შეიყვანეთ აღწერა"
+          ></textarea>
+          <label for="publish date">შეიყვანეთ თარიღი*</label>
+          <input type="date" name="publish_date" id="publish_date" />
+          <label for="categories">კატეგორია*</label>
+          <select name="categories" id="categories"></select>
+          <label for="email">ელ-ფოსტა</label>
+          <input type="text" name="email" id="email" />
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

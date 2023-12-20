@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="./img/LOGO-02 3.png" alt="redberry logo" />
+      <button class="btn btn-login">შესვლა</button>
+      <a href="addblog.html" class="btn btn-addblog">დაამატე ბლოგი</a>
+    </header>
+    <main class="main">
+      <form action="" class="login-container">
+        <span class="login-icon"
+          ><ion-icon
+            name="close-circle-outline"
+            class="close-circle"
+          ></ion-icon>
+        </span>
+        <div class="checkmark-box">
+          <span
+            ><ion-icon name="checkmark-circle" class="checkmark-icon"></ion-icon
+          ></span>
+          <p class="login-text">შესვლა</p>
+        </div>
+
+        <label for="email" class="email-label">ელ-ფოსტა</label>
+        <div class="flex-column">
+          <input
+            type="email"
+            placeholder="Example@redberry.ge"
+            name="mail"
+            id=""
+            class="input-mail"
+          />
+          <div class="error-box">
+            <span
+              ><ion-icon name="alert-circle" class="error-icon"></ion-icon
+            ></span>
+            <p class="error-msg">ელ-ფოსტა არ მოიძებნა</p>
+          </div>
+          <button type="submit" class="btn-login2">შესვლა</button>
+        </div>
+      </form>
+      <section class="blog-background">
+        <p class="blog-text">ბლოგი</p>
+        <img
+          class="background-photo"
+          src="./img/Blog-1024x355 1.png"
+          alt="background photo"
+        />
+      </section>
+      <section class="categories">
+        <div class="categories-menu"></div>
+      </section>
+    </main>
+  </body>
+</html>
