@@ -52,22 +52,5 @@ emailForm.addEventListener("submit", (e) => {
   }
 });
 
-// gategories response
-
-// async function categriesData() {
-//   try {
-//     const categoriesrResponse = await fetch(
-//       "https://api.blog.redberryinternship.ge/api/categories"
-//     );
-//     if (!categoriesrResponse.ok) {
-//       throw new Error("can't get resposne");
-//     }
-//     const categoryData = await categoriesrResponse.json();
-
-//     console.log(categoryData);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// categriesData();
+//////
+//////

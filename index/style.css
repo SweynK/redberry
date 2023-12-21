@@ -171,4 +171,23 @@ main {
 .active-errors {
   display: block;
 }
-/*addblog styles*/
+.categories-menu {
+  margin-top: 12.8rem;
+  width: 70.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  /* overflow: auto; */
+  /* border: 1px solid black; */
+}
+.categories-btn {
+  border: none;
+  padding: 8px 8px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}

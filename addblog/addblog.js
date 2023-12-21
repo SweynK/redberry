@@ -122,12 +122,22 @@ function checkMail() {
   const pattern = /^.+@redberry\.com$/;
   let emailInput = mailInput.value;
   if (!emailInput.match(pattern)) {
-    mailInput.style.border = '1px solid "#EA1919"';
-    mailError.textContent = "whatapaq";
-    console.log("sadsada");
+    mailInput.style.borderColor = "#EA1919";
+    mailError.textContent = "მეილი უნდა მთავრდებოდეს @redberry.ge-ით";
+    mailError.style.color = "#EA1919";
+    mailError.style.fontSize = "12px";
     return false;
   }
+  mailError.textContent = "";
+  mailInput.style.border = "1px solid green";
+  return true;
 }
+mailInput.addEventListener("input", () => {
+  if (trySubmit) {
+    checkMail();
+  }
+});
+
 authorInput.addEventListener("input", () => {
   if (trySubmit) {
     checkName();
