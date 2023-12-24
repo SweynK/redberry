@@ -1,5 +1,7 @@
 ////////////////////
 // add blog  valifation
+const token =
+  "5480b24000ac6645b93bf1c26cef07f850b9d1d9ae264d6959a7879cfddebf70";
 if (document !== "undefined") {
   const authorInput = document.querySelector("#author");
   const titleInput = document.querySelector("#title");
@@ -158,13 +160,63 @@ if (document !== "undefined") {
       mailError.style.opacity = "0%";
     }
   });
-  const token =
-    "0a26910cca62446d7e9d0ec5edccb9a8c9926456aa21d1eedb4a5cd009170b72";
+
+  categoriesInput.addEventListener("click",()=>{
+    categoriesInput.style.height = "100px";
+    const categoriesValues = document.querySelector(".hide");
+    categoriesValues.style.display = "block";
+    
+  async function getCategoriesData(){
+    try {
+      const response = await fetch("https://api.blog.redberryinternship.ge/api/categories",{
+        method: "GET",
+        headers:{
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json",
+        }
+      })
+      const data = await response.json();
+      
+      // console.log(data)
+      
+      
+      data.data.forEach((el) => {
+        const option = document.createElement("option");
+        // console.log(el);
+        option.value = el.id;
+        option.text = el.title;
+        option.style.backgroundColor = el.background_color;
+        option.style.color = el.text_color;
+        option.className = "categories-option";
+        categoriesInput.appendChild(option);
+
+      });
+      const option = document.querySelector("option")
+      // option.addEventListener("click",()=>{
+        
+        
+      // })
+      
+      
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  getCategoriesData();
+  })
+  
+  
+
+
+  
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (checkName() && checkTitle() && checkDescription() && checkMail()) {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
+      console.log(data);
+
       try {
         async function sendBlogData() {
           const response = await fetch(
@@ -172,13 +224,13 @@ if (document !== "undefined") {
             {
               method: "POST",
               headers: {
-                Authorization: `Bearer ${token}`,
+                "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json",
               },
               body: JSON.stringify(data),
             }
           );
-          // console.log(response.status);
+          console.log(response.status);
 
           if (!response.ok)
             throw new Error("failed to add blog", response.status);
@@ -193,15 +245,22 @@ if (document !== "undefined") {
           {
             method: "GET",
             headers: {
-              Authorization: `Bearer ${token}`,
+              "Authorization": `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           }
         );
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
+        
+        
       }
       getdata();
     }
   });
+
+
+
+
+  
 }

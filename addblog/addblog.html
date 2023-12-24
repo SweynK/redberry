@@ -86,16 +86,18 @@
                 type="date"
                 name="publish_date"
                 id="publish_date"
-                class="input-style"
+                class="input-style margin-bottom"
               />
             </div>
             <div class="flex-style">
               <label for="categories" class="label-header">კატეგორია *</label>
+              <div class="categories-values hide"></div>
               <select
                 name="categories"
                 id="categories"
-                class="input-style"
-              ></select>
+                class="input-style section-style"
+                multiple size="14">
+              </select>
             </div>
           </div>
           <label for="email" class="label-header">ელ-ფოსტა</label>
@@ -103,7 +105,7 @@
             type="text"
             name="email"
             id="email"
-            class="input-style"
+            class="input-style" 
             placeholder="Example@redberry.com"
           />
           <p class="mail-error"></p>

@@ -1,18 +1,19 @@
 const token =
-  "0a26910cca62446d7e9d0ec5edccb9a8c9926456aa21d1eedb4a5cd009170b72";
+  "5480b24000ac6645b93bf1c26cef07f850b9d1d9ae264d6959a7879cfddebf70";
 
 if (typeof document !== "undefined") {
   const cateogriesMenu = document.querySelector(".categories-menu");
   async function categriesData() {
     try {
+      const headers = new Headers({
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
       const categoriesrResponse = await fetch(
         "https://api.blog.redberryinternship.ge/api/categories",
         {
           method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
+          headers: headers,
         }
       );
       // console.log(categoriesrResponse.status);
@@ -30,6 +31,8 @@ if (typeof document !== "undefined") {
       });
 
       //   console.log(categoryData.data);
+
+      
     } catch (error) {
       console.log(error);
     }
@@ -48,9 +51,10 @@ if (typeof document !== "undefined") {
   const errorIcon = document.querySelector(".error-icon");
   const checkmark = document.querySelector(".checkmark-icon");
   const loginBtn2 = document.querySelector(".btn-login2");
+
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log("blalba");
     const pattern = /^.+@redberry\.ge$/;
     let emailInput = email.value;
     if (!emailInput.match(pattern)) {
@@ -70,6 +74,7 @@ if (typeof document !== "undefined") {
     loginBtn.style.display = "none";
     addblogBtn.style.display = "block";
     loginBtn2.addEventListener("click", () => {
+      // form.removeEventListener("submit",form);
       loginBox.classList.remove("active");
       document.body.classList.remove("blur");
       document.querySelector(".main").style.backgroundColor = "#fcfcfd";
@@ -79,14 +84,15 @@ if (typeof document !== "undefined") {
     const data = Object.fromEntries(formData);
     try {
       async function sentData() {
+        const headers = new Headers({
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json",
+        });
         const resposne = await fetch(
           "https://api.blog.redberryinternship.ge/api/login",
           {
             method: "POST",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
+            headers: headers,
             body: JSON.stringify(data),
           }
         );
@@ -99,5 +105,69 @@ if (typeof document !== "undefined") {
     } catch (error) {
       console.log(error);
     }
+
+    async function getCategoriesData(){
+      const blogs = document.querySelector(".blogs")
+      try {
+        const response = await fetch("https://api.blog.redberryinternship.ge/api/blogs",{
+          method: "GET",
+          headers:{
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json",
+          }
+        })
+        const data = await response.json();
+        console.log(data);
+        data.data.forEach((el) => {
+          const box = document.createElement("div");
+          box.className = "blog-main"
+          blogs.appendChild(box);
+          const imgBox = document.createElement("img");
+          imgBox.className = "box-img";
+          imgBox.src = el.image;
+          const p1 = document.createElement("p");
+          p1.innerText = el.author;
+          p1.className = "author-text";
+          const span1 = document.createElement("span");
+          span1.innerText = el.publish_date;
+          span1.className = "date-span";
+          const titleP = document.createElement("p");
+          titleP.innerText = el.title;
+          titleP.className="title-text";
+          const divCategories = document.createElement("div");
+          el.categories.forEach(el=>{
+            const categoryP =document.createElement("p");
+            categoryP.className ="category-text";
+            categoryP.innerText = el.title;
+            categoryP.style.backgroundColor = el.background_color;
+            categoryP.style.color = el.text_color;
+            divCategories.appendChild(categoryP);
+          })
+          const desctiptionP = document.createElement("p");
+          desctiptionP.innerText = el.description;
+          desctiptionP.className = "description-text";
+          const fullBlogBtn = document.createElement("a");
+          fullBlogBtn.href = "#";
+          fullBlogBtn.innerHTML = "სრულად ნახვა &#8599;	"
+          
+          box.appendChild(imgBox);
+          box.appendChild(p1);
+          box.appendChild(span1);
+          box.appendChild(titleP);
+          box.appendChild(divCategories);
+          box.appendChild(desctiptionP);
+          box.appendChild(fullBlogBtn);
+
+
+          
+  
+        });
+        
+         
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getCategoriesData();
   });
 }

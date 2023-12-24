@@ -1,3 +1,4 @@
+@import url("https://free.bboxtype.com/embedfonts/?family=FiraGO:400,500,700");
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,8 @@
 }
 html {
   font-size: 62.5%;
+  
+  
 }
 header {
   height: 8rem;
@@ -13,7 +16,6 @@ header {
   justify-content: center;
   align-items: center;
 }
-
 main {
   min-height: 100vh;
   background-color: #fcfcfd;
@@ -106,6 +108,38 @@ main {
   margin-bottom: 8px;
   outline: none;
 }
+.section-style{
+  min-height: 4.4rem;
+  overflow-y: auto;
+}
+.hide{
+  display: none;
+}
+.margin-bottom{
+  margin-bottom: 120px;
+}
+.categories-values{
+  width: 28.8rem;
+  height: 4.4rem;
+  font-size: 1.4rem;
+  border-radius: 12px;
+  padding: 5px 16px;
+  background-color: #fcfcfd;
+  border: 1px solid #e4e3eb;
+  /* margin-bottom: 8px;
+  outline: none; */
+}
+.categories-option {
+  border: none;
+  padding: 8px 8px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  margin-bottom: 2px;
+}
+
 .flex-inputs {
   display: flex;
   justify-content: space-between;
