@@ -214,8 +214,25 @@ if (document !== "undefined") {
     e.preventDefault();
     if (checkName() && checkTitle() && checkDescription() && checkMail()) {
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-      console.log(data);
+      // const data = Object.fromEntries(formData);
+      // console.log(data);
+      console.log([...formData]);
+      const jsonData = {};
+      for (const [key, value] of formData.entries()){
+        if( key === "categories"){
+          const selectedOptions = Array.from(value);
+          console.log("blabla");
+          jsonData[key] = selectedOptions.map(option =>{
+            console.log(option.value);
+            return option.value
+          } );
+        }else{
+          jsonData[key] = value;
+        }
+        
+      }
+      console.log(jsonData);
+      
 
       try {
         async function sendBlogData() {
@@ -227,7 +244,7 @@ if (document !== "undefined") {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(data),
+              body: JSON.stringify(jsonData),
             }
           );
           console.log(response.status);
@@ -251,7 +268,7 @@ if (document !== "undefined") {
           }
         );
         const data = await response.json();
-        // console.log(data);
+        console.log(data);
         
         
       }
